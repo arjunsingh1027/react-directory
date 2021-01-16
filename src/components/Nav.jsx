@@ -1,14 +1,15 @@
 import React from "react";
 import SearchForm from "./SearchForm";
+import "../styles/Nav.css"
 
-function Nav() {
+function Nav({ handleSearchChange }) {
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-
-            <div className="search-area col-4">
-                <SearchForm />
+        <nav className = "navbar navbar-expand navbar-light bg-light">
+            <div className="navbar-collapse row" id="navbarNav">
+                <SearchForm handleSearchChange={handleSearchChange}/>
             </div>
         </nav>
     );
 }
+
 export default Nav;

@@ -1,22 +1,19 @@
 import React from "react";
+import "../styles/SearchForm.css"
 
-function SearchForm() {
-  return (
-    <div className="searchbox">
+function SearchForm ({ handleSearchChange }){
+    return (
+        <div className="searchform">
             <form className="form-inline">
-                <input
-                    className="form-control mr-sm-2"
+                <input className="form-control"
                     type="search"
                     placeholder="Search"
                     aria-label="Search"
-                    onChange={e => context.handleSearchChange(e)}
+                    onChange={e=> handleSearchChange(e)}
                 />
-                <button className="btn my-2 my-sm-0" type="submit">
-                    Search
-                 </button>
             </form>
         </div>
-  );
+    );
 }
 
 export default SearchForm;
