@@ -1,17 +1,16 @@
 import React from "react";
-import Main from "./components/Main";
 import Container from "./components/Container";
-import Header from "./components/Header";
+import Employee from "./components/Employee";
 import "./App.css";
 
-function App(){
-return (
-<div className="App">
-  <Container>
-    <Header />
-    <Main />
-  </Container>
-</div>
-);
+function App() {
+  return (
+    <div className="App">
+      <Container>
+        <Employee />
+      </Container>
+    </div>
+  );
 }
+
 export default App;
