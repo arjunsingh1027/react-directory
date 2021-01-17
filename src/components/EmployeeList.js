@@ -1,14 +1,14 @@
 import React from "react";
-import Table from "react-bootstrap";
+import Table from "react-bootstrap/Table";
 
-function EmployeeList({ list, sortByName }) {
+function EmployeeList({ list, sortEmployeeName }) {
     return (
         <Table striped border hover>
             <thead className="text-center">
                 <tr>
                     <th>Photo</th>
                     <th>
-                        <a onClick={sortByName}>Employee Name</a>
+                        <a onClick={sortEmployeeName}>Employee Name</a>
                     </th>
                     <th>Email</th>
                     <th>Phone</th>

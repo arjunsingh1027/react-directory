@@ -3,7 +3,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import List from "react-bootstrap/List";
+import EmployeeList from "./EmployeeList";
 
 class Search extends React.Component {
     state = {
@@ -55,7 +55,7 @@ class Search extends React.Component {
                         <Button variant="outline-light">Search</Button>
                     </Form>
                 </Navbar>
-                <List
+                <EmployeeList
                     list={this.state.employees.filter(({ name }) =>
                         name.first.toLowerCase().includes(this.state.search.toLowerCase())
                     )}
