@@ -51,8 +51,54 @@ class App extends React.Component {
     e.preventDefault();
     console.log("button clicked", this.state.search, e);
     this.searchEmployee(this.state.search);
-  }
+  };
 
+  render() {
+    return (
+      <Container>
+        <div className="container">
+          <div className="row">
+            <col className="col-md-4">
+              <h2>Employee Directory</h2>
+              <Search
+                value={this.state.search}
+                handleInputChange={this.handleInputChange}
+                handleFormSubmit={this.handleFormSubmit}
+              />
+            </col>
+          </div>
+
+          <div className="row">
+            <col className="col-md-12">
+              <table className="table">
+                <thead>
+                  <tr>
+                    <th>Photo</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>DOB</th>
+                  </tr>
+                </thead>
+                {[...this.state.employees].map((item) => (
+                  <Employee
+                    picture={item.picture}
+                    firstName={item.firstName}
+                    lastName={item.lastName}
+                    email={item.email}
+                    phone={item.phone}
+                    dob={item.dob}
+                    key={item.key}
+                  />
+                ))}
+              </table>
+            </col>
+          </div>
+        </div>
+      </Container>
+    );
+  }
 }
 
 
