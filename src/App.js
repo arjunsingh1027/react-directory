@@ -40,6 +40,19 @@ class App extends React.Component {
     this.setState({ employees: filterList });
   }
 
+  handleInputChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+    console.log("Handle", this.state.serch);
+  };
+
+  handleFormSubmit = (e) => {
+    e.preventDefault();
+    console.log("button clicked", this.state.search, e);
+    this.searchEmployee(this.state.search);
+  }
+
 }
 
 
