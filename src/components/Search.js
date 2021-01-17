@@ -8,7 +8,7 @@ import EmployeeList from "./EmployeeList";
 class Search extends React.Component {
     state = {
         employees: [],
-        employeeArray: [],
+        // employeeArray: [],
         search: "",
         sort: "",
     };
@@ -38,19 +38,32 @@ class Search extends React.Component {
         this.setState({ employees: arr, sort: !sort })
     };
 
+    handleSearchQuery = (e) => {
+        console.log(e.target.value)
+        const filter = e.target.value;
+        const filterList = this.state.employees.filter(input => {
+            let values = Object.values(input)
+                .join("")
+                .toLowerCase();
+            return values.indexOf(filter.toLowerCase()) !== -1;
+        });
+
+        this.setState({ filteredEmployees: filterList })
+    }
+
     render() {
         return (
             <div className="Search">
-                <Navbar bg="dark" variant="dark">
+                <Navbar bg="dark" variant="dark" handleSearchQuery={this.handleSearchQuery}>
                     <Navbar.Brand href="#home">Employee Directory</Navbar.Brand>
                     <Nav className="mr-auto"></Nav>
                     <Form inline>
                         <Form.Control
-                            onchange={(e) => this.setState({ search: e.target.value })}
-                            value={this.state.search}
+                            // value={this.state.search}
                             type="text"
                             placeholder="Search for Employee"
                             name="search"
+                            onchange={e => handleSearchQuery(e)}
                         />
                         <Button variant="outline-light">Search</Button>
                     </Form>
