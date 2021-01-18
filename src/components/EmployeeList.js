@@ -32,7 +32,7 @@ function EmployeeList({ list, sortEmployeeName }) {
                                 {email}
                             </a>
                         </td>
-                        <td>Phone</td>
+                        <td>{phone}</td>
                     </tr>
                 ))}
             </tbody>

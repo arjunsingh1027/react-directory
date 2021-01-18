@@ -8,7 +8,8 @@ import EmployeeList from "./EmployeeList";
 class Search extends React.Component {
     state = {
         employees: [],
-        // employeeArray: [],
+        employeeArray: [],
+        filteredEmployees: [],
         search: "",
         sort: "",
     };
@@ -29,13 +30,13 @@ class Search extends React.Component {
         e.preventDefault();
 
         // take current state
-        let { employees, sort, arr } = this.state;
+        let { employees, sort, employeeArray } = this.state;
 
         // if array is not sorted, sort by name
-        (!sort) ? arr = employees.sort((a, b) => a.name.first > a.name.first ? 1 : -1) : arr = employees.reverse();
+        (!sort) ? employeeArray = employees.sort((a, b) => a.name.first > a.name.first ? 1 : -1) : employeeArray = employees.reverse();
 
         // new state with sorted data
-        this.setState({ employees: arr, sort: !sort })
+        this.setState({ employees: employeeArray, sort: !sort })
     };
 
     handleSearchQuery = (e) => {
@@ -49,12 +50,13 @@ class Search extends React.Component {
         });
 
         this.setState({ filteredEmployees: filterList })
-    }
+    };
 
     render() {
+        console.log(this.state)
         return (
             <div className="Search">
-                <Navbar bg="dark" variant="dark" handleSearchQuery={this.handleSearchQuery}>
+                <Navbar bg="dark" variant="dark">
                     <Navbar.Brand href="#home">Employee Directory</Navbar.Brand>
                     <Nav className="mr-auto"></Nav>
                     <Form inline>
@@ -63,16 +65,13 @@ class Search extends React.Component {
                             type="text"
                             placeholder="Search for Employee"
                             name="search"
-                            onchange={e => handleSearchQuery(e)}
+                            onChange={e => this.handleSearchQuery(e)}
                         />
                         <Button variant="outline-light">Search</Button>
                     </Form>
                 </Navbar>
                 <EmployeeList
-                    list={this.state.employees.filter(({ name }) =>
-                        name.first.toLowerCase().includes(this.state.search.toLowerCase())
-                    )}
-                    sortEmployeeName={this.sortEmployeeName}
+                    list={this.state.filteredEmployees}
                 />
             </div>
         )
