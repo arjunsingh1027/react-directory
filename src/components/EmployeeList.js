@@ -8,7 +8,7 @@ function EmployeeList({ list, sortEmployeeName }) {
                 <tr>
                     <th>Photo</th>
                     <th>
-                        <a onClick={sortEmployeeName}>Employee Name</a>
+                        <a href="#/" onClick={sortEmployeeName}>Employee Name</a>
                     </th>
                     <th>Email</th>
                     <th>Phone</th>
@@ -21,7 +21,7 @@ function EmployeeList({ list, sortEmployeeName }) {
                         <td>
                             <img
                                 src={picture.large}
-                                alt="employee picture"
+                                alt="employee"
                             />
                         </td>
                         <td>

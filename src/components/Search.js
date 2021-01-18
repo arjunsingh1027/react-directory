@@ -33,7 +33,7 @@ class Search extends React.Component {
         let { employees, sort, employeeArray } = this.state;
 
         // if array is not sorted, sort by name
-        (!sort) ? employeeArray = employees.sort((a, b) => a.name.first > a.name.first ? 1 : -1) : employeeArray = employees.reverse();
+        (!sort) ? employeeArray = employees.sort((a, b) => a.name.first > b.name.first ? 1 : -1) : employeeArray = employees.reverse();
 
         // new state with sorted data
         this.setState({ employees: employeeArray, sort: !sort })
